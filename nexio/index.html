@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXIO - Accueil</title>
+    <link rel="stylesheet" href="style_nexio.css">
+</head>
+<body>
+
+<div class="fictif-overlay" id="fictifOverlay">
+    <div class="fictif-modal">
+        <h3>🚫 Action indisponible</h3>
+        <p>Cette fonctionnalité est désactivée.<br>NEXIO est un <strong>site fictif</strong> réalisé dans le cadre d'un BTS. Les interactions ne sont pas fonctionnelles.</p>
+        <button onclick="closeFictif()">Compris</button>
+    </div>
+</div>
+
+<nav class="top-nav">
+    <div class="nav-content">
+        <div class="brand">NEXIO</div>
+        <div class="main-menu">
+            <a href="index.html" class="nav-item active">Accueil</a>
+            <a href="#" class="nav-item" onclick="showFictif();return false;">Messages</a>
+            <a href="profil.html" class="nav-item">Profil</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;">
+            <button onclick="openSearch()" style="background:none;border:none;cursor:pointer;color:#888;font-size:1.2rem;padding:8px;">🔍</button>
+            <div style="position:relative;">
+                <div onclick="toggleDropdown()" style="width:40px;height:40px;border-radius:50%;background:#222;border:2px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;">👤</div>
+                <div class="dropdown-menu-custom" id="userDropdown">
+                    <a href="profil.html">Voir mon profil</a>
+                    <a href="#" onclick="showFictif();return false;">Déconnexion</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="banner-fictif">
+    ⚠️ SITE FICTIF : Les services présentés sur cette page de démonstration sont fictifs et réalisés dans le cadre de mon BTS.
+    <a href="../index.html">Retour</a>
+</div>
+
+<div id="searchModal" style="display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,0,0,0.95);backdrop-filter:blur(10px);z-index:999;padding:20px;border-bottom:1px solid var(--border);">
+    <div style="max-width:650px;margin:0 auto;display:flex;gap:10px;align-items:center;background:var(--card);padding:20px;border-radius:12px;border:1px solid var(--border);">
+        <input type="text" id="searchInput" placeholder="🔍 Rechercher..." style="flex:1;padding:14px 20px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text-p);font-size:1rem;outline:none;">
+        <button onclick="showFictif()" class="btn-send" style="padding:12px 28px;">Rechercher</button>
+        <button onclick="closeSearch()" class="btn-send-secondary" style="padding:12px 28px;">Annuler</button>
+    </div>
+</div>
+
+<main class="container">
+    <div style="text-align:center;margin-bottom:25px;">
+        <button class="btn-send" onclick="showFictif()" style="padding:12px 24px;border-radius:8px;">✍️ Créer une publication</button>
+    </div>
+
+    <section class="feed">
+
+        <article class="post-entry" id="post-1" style="border:1px solid #333;border-radius:12px;padding:20px;margin-bottom:25px;background:rgba(255,255,255,0.02);">
+            <input type="checkbox" id="tc1" style="display:none !important;">
+            <div class="post-header">
+                <a href="profil.html"><div style="width:45px;height:45px;border-radius:50%;background:#1a1a2e;border:1px solid #444;display:flex;align-items:center;justify-content:center;font-size:1.3rem;">🧑</div></a>
+                <div style="margin-left:12px;">
+                    <a href="profil.html" style="text-decoration:none;color:inherit;"><span class="name" style="font-weight:bold;display:block;">SuperBREP</span></a>
+                    <span class="time">Posté le 12/03 à 14:32</span>
+                </div>
+            </div>
+            <div class="post-body"><p style="line-height:1.5;">Hey, ce site est génial nan ? Son créateur doit-être très talentueux !</p></div>
+            <div class="post-footer">
+                <button onclick="showFictif()" class="btn-action like-btn"><span class="heart-icon">🤍</span><span class="like-count">24</span></button>
+                <label for="tc1" class="btn-action" style="cursor:pointer;display:flex;align-items:center;gap:8px;"><span>💬</span><span>2</span></label>
+            </div>
+            <div>
+                <div style="background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:6px;margin-top:8px;"><strong>SarahCode :</strong> J'ai entendu dire qu'il cherchait un stage apparemment</div>
+                <div style="background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:6px;margin-top:8px;"><strong>MarcDsgn :</strong> Oui j'en ai aussi entendu parler SarahCode, peut être qu'il sera pris grâce à ce M-A-G-N-I-F-I-Q-U-E portfolio ?</div>
+            </div>
+            <div class="comment-write-box logic-comm" id="lc1">
+                <textarea placeholder="Écrire une réponse..." style="margin-top:10px;" onclick="showFictif()"></textarea>
+                <div class="write-controls">
+                    <label for="tc1" class="btn-cancel">Annuler</label>
+                    <button class="btn-send" onclick="showFictif()">Répondre</button>
+                </div>
+            </div>
+            <style>#tc1:checked ~ #lc1 { display:block !important; }</style>
+        </article>
+
+        <article class="post-entry" id="post-2" style="border:1px solid #333;border-radius:12px;padding:20px;margin-bottom:25px;background:rgba(255,255,255,0.02);">
+            <input type="checkbox" id="tc2" style="display:none !important;">
+            <div class="post-header">
+                <a href="profil.html"><div style="width:45px;height:45px;border-radius:50%;background:#0d2137;border:1px solid #444;display:flex;align-items:center;justify-content:center;font-size:1.3rem;">👩</div></a>
+                <div style="margin-left:12px;">
+                    <a href="profil.html" style="text-decoration:none;color:inherit;"><span class="name" style="font-weight:bold;display:block;">SarahCode</span></a>
+                    <span class="time">Posté le 11/03 à 09:15</span>
+                </div>
+            </div>
+            <div class="post-body"><p style="line-height:1.5;">Premier projet React terminé ! ❤️</p></div>
+            <div class="post-footer">
+                <button onclick="showFictif()" class="btn-action like-btn liked"><span class="heart-icon">❤️</span><span class="like-count">41</span></button>
+                <label for="tc2" class="btn-action" style="cursor:pointer;display:flex;align-items:center;gap:8px;"><span>💬</span><span>1</span></label>
+            </div>
+            <div>
+                <div style="background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:6px;margin-top:8px;"><strong>Nino :</strong> Bravo ! Félicitation !</div>
+            </div>
+            <div class="comment-write-box logic-comm" id="lc2">
+                <textarea placeholder="Écrire une réponse..." style="margin-top:10px;" onclick="showFictif()"></textarea>
+                <div class="write-controls">
+                    <label for="tc2" class="btn-cancel">Annuler</label>
+                    <button class="btn-send" onclick="showFictif()">Répondre</button>
+                </div>
+            </div>
+            <style>#tc2:checked ~ #lc2 { display:block !important; }</style>
+        </article>
+
+        <article class="post-entry" id="post-3" style="border:1px solid #333;border-radius:12px;padding:20px;margin-bottom:25px;background:rgba(255,255,255,0.02);">
+            <input type="checkbox" id="tc3" style="display:none !important;">
+            <div class="post-header">
+                <a href="profil.html"><div style="width:45px;height:45px;border-radius:50%;background:#1a0d21;border:1px solid #444;display:flex;align-items:center;justify-content:center;font-size:1.3rem;">🧔</div></a>
+                <div style="margin-left:12px;">
+                    <a href="profil.html" style="text-decoration:none;color:inherit;"><span class="name" style="font-weight:bold;display:block;">MarcDsgn</span></a>
+                    <span class="time">Posté le 10/03 à 17:48</span>
+                </div>
+            </div>
+            <div class="post-body"><p style="line-height:1.5;">Apparemment, on existe pas réellement, on ne serait que des fausses personnes pour un site fictif pour le portfolio du créateur ???</p></div>
+            <div class="post-footer">
+                <button onclick="showFictif()" class="btn-action like-btn"><span class="heart-icon">🤍</span><span class="like-count">58</span></button>
+                <label for="tc3" class="btn-action" style="cursor:pointer;display:flex;align-items:center;gap:8px;"><span>💬</span><span>2</span></label>
+            </div>
+            <div>
+                <div style="background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:6px;margin-top:8px;"><strong>SarahCode :</strong> HEIN !? Je n'y crois ABSOLUMENT pas, c'est impossible, j'ai une vie et j'existe</div>
+                <div style="background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:6px;margin-top:8px;"><strong>MarcDsgn :</strong> Si je t'assure ;-;</div>
+            </div>
+            <div class="comment-write-box logic-comm" id="lc3">
+                <textarea placeholder="Écrire une réponse..." style="margin-top:10px;" onclick="showFictif()"></textarea>
+                <div class="write-controls">
+                    <label for="tc3" class="btn-cancel">Annuler</label>
+                    <button class="btn-send" onclick="showFictif()">Répondre</button>
+                </div>
+            </div>
+            <style>#tc3:checked ~ #lc3 { display:block !important; }</style>
+        </article>
+
+        <article class="post-entry" id="post-4" style="border:1px solid #333;border-radius:12px;padding:20px;margin-bottom:25px;background:rgba(255,255,255,0.02);">
+            <input type="checkbox" id="tc4" style="display:none !important;">
+            <div class="post-header">
+                <a href="profil.html"><div style="width:45px;height:45px;border-radius:50%;background:#0d2117;border:1px solid #444;display:flex;align-items:center;justify-content:center;font-size:1.3rem;">👱</div></a>
+                <div style="margin-left:12px;">
+                    <a href="profil.html" style="text-decoration:none;color:inherit;"><span class="name" style="font-weight:bold;display:block;">LucasBTS</span></a>
+                    <span class="time">Posté le 09/03 à 11:20</span>
+                </div>
+            </div>
+            <div class="post-body"><p style="line-height:1.5;">A la base, ce site était fait en PHP, avec une vraie base de donnée, on pouvait créer des posts et même des comptes, mais ici, juste pour la présentation du portfolio de Nino, cette page est fictive...</p></div>
+            <div class="post-footer">
+                <button onclick="showFictif()" class="btn-action like-btn"><span class="heart-icon">🤍</span><span class="like-count">33</span></button>
+                <label for="tc4" class="btn-action" style="cursor:pointer;display:flex;align-items:center;gap:8px;"><span>💬</span><span>1</span></label>
+            </div>
+            <div>
+                <div style="background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:6px;margin-top:8px;"><strong>MarcDsgn :</strong> Attend... Tu veux dire qu'on existe pas réellement ??? VITE faut que j'aille faire un post !!!</div>
+            </div>
+            <div class="comment-write-box logic-comm" id="lc4">
+                <textarea placeholder="Écrire une réponse..." style="margin-top:10px;" onclick="showFictif()"></textarea>
+                <div class="write-controls">
+                    <label for="tc4" class="btn-cancel">Annuler</label>
+                    <button class="btn-send" onclick="showFictif()">Répondre</button>
+                </div>
+            </div>
+            <style>#tc4:checked ~ #lc4 { display:block !important; }</style>
+        </article>
+
+    </section>
+</main>
+
+<script>
+    function showFictif() { document.getElementById('fictifOverlay').classList.add('active'); }
+    function closeFictif() { document.getElementById('fictifOverlay').classList.remove('active'); }
+    document.getElementById('fictifOverlay').addEventListener('click', function(e) { if(e.target===this) closeFictif(); });
+    function openSearch() { document.getElementById('searchModal').style.display='block'; document.getElementById('searchInput').focus(); }
+    function closeSearch() { document.getElementById('searchModal').style.display='none'; }
+    function toggleDropdown() {
+        const d = document.getElementById('userDropdown');
+        d.style.display = (d.style.display==='none'||d.style.display==='') ? 'block' : 'none';
+    }
+    window.addEventListener('click', function(e) {
+        const d = document.getElementById('userDropdown');
+        const btn = d.previousElementSibling;
+        if (!btn.contains(e.target) && !d.contains(e.target)) d.style.display='none';
+    });
+    document.addEventListener('keydown', function(e) { if(e.key==='Escape'){ closeSearch(); closeFictif(); } });
+</script>
+</body>
+</html>
