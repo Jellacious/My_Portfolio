@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #456379;
+        }
+
+        .calculatrice {
+            background-color: #4285F4;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .ecran {
+            background-color: #eee;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: right;
+            font-size: 2em;
+            height: 35px;
+            line-height: 35px;
+            overflow: hidden;
+        }
+
+        .boutons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        button {
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+            font-size: 1.2em;
+            cursor: pointer;
+            background-color: #34A853;
+            color: white;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #12cf28;
+        }
+
+        button.operateur {
+            background-color: #fb9905;
+        }
+
+        button.operateur:hover {
+            background-color: #ffe600;
+        }
+
+        button.effacer {
+            background-color: #EA4335;
+            color: white;
+        }
+
+        button.effacer:hover {
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculatrice">
+        <div class="ecran" id="ecran">0</div>
+        <div class="boutons">
+            <button class="effacer" onclick="resetCalculatrice()">AC</button>
+            <button disabled style="opacity: 0.5; cursor: default;"></button>
+            <button disabled style="opacity: 0.5; cursor: default;"></button>
+            <button class="operateur" onclick="ajouterCaractere('/')">/</button>
+            
+            <button onclick="ajouterCaractere('7')">7</button>
+            <button onclick="ajouterCaractere('8')">8</button>
+            <button onclick="ajouterCaractere('9')">9</button>
+            <button class="operateur" onclick="ajouterCaractere('*')">×</button>
+            
+            <button onclick="ajouterCaractere('4')">4</button>
+            <button onclick="ajouterCaractere('5')">5</button>
+            <button onclick="ajouterCaractere('6')">6</button>
+            <button class="operateur" onclick="ajouterCaractere('-')">-</button>
+            
+            <button onclick="ajouterCaractere('1')">1</button>
+            <button onclick="ajouterCaractere('2')">2</button>
+            <button onclick="ajouterCaractere('3')">3</button>
+            <button class="operateur" onclick="ajouterCaractere('+')">+</button>
+            
+            <button onclick="ajouterCaractere('0')">0</button>
+            <button onclick="ajouterCaractere('.')">.</button>
+            <button class="operateur" style="grid-column: span 2;" onclick="calculer()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let ecran = document.getElementById('ecran');
+        let expression = '';
+
+        function ajouterCaractere(caractere) {
+            if (expression === '' && ['+', '*', '/'].includes(caractere)) return;
+            expression += caractere;
+            ecran.innerText = expression;
+        }
+
+        function resetCalculatrice() {
+            expression = '';
+            ecran.innerText = '0';
+        }
+
+        function calculer() {
+            try {
+                if (!expression) return;
+                let resultat = Function('"use strict";return (' + expression + ')')();
+                expression = resultat.toString();
+                ecran.innerText = expression;
+            } catch (e) {
+                ecran.innerText = 'Erreur';
+                expression = '';
+            }
+        }
+    </script>
+</body>
+</html>

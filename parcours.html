@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Parcours — Nino Hernandez</title>
+
+    <!-- Bootstrap 5 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Barre de Navigation -->
+    <nav class="navbar navbar-expand-md sticky-top border-bottom py-3">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Nino Hernandez</a>
+
+            <div class="d-flex align-items-center gap-2 order-md-last">
+                <button class="btn-theme-toggle" id="themeToggleBtn" title="Basculer le thème" aria-label="Basculer le thème">
+                    <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
+                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                    aria-controls="navMenu" aria-expanded="false" aria-label="Menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#projets">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#competences">Compétences</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" href="parcours.html">Mon Parcours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#ia">Et l'IA ?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- En-tête de la page -->
+    <header class="hero-section text-center">
+        <div class="container py-4">
+            <h1 class="hero-title display-5 mb-3">Mon Parcours</h1>
+            <p class="lead text-secondary mx-auto mb-0" style="max-width: 650px;">
+                Depuis tout petit, j'ai toujours voulu créer des choses pour les autres. Voici les étapes qui m'ont mené vers le développement.
+            </p>
+        </div>
+    </header>
+
+    <!-- Section Chronologie du Parcours -->
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+
+                    <!-- Étape 1 : BTS SIO -->
+                    <div class="card border mb-4 p-4 rounded-3" style="background: var(--bg-surface); border-color: var(--card-border) !important;">
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <span class="badge bg-primary px-3 py-2 fs-6">2024 — Aujourd'hui</span>
+                            <h2 class="h5 fw-bold mb-0">BTS SIO (Option SLAM) — 1ère et 2ème année</h2>
+                        </div>
+                        <p class="text-muted small mb-3">Lycée Aliénor d'Aquitaine</p>
+                        <p class="text-secondary mb-0">
+                            Formation axée sur le développement d'applications, le génie logiciel, les bases de données et les architectures web. C'est ici que je consolide mes compétences en programmation et que je réalise des projets concrets.
+                        </p>
+                    </div>
+
+                    <!-- Étape 2 : Bac Pro SN -->
+                    <div class="card border mb-4 p-4 rounded-3" style="background: var(--bg-surface); border-color: var(--card-border) !important;">
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <span class="badge bg-secondary px-3 py-2 fs-6">Bac Pro</span>
+                            <h2 class="h5 fw-bold mb-0">1ère & Terminale SN (Systèmes Numériques)</h2>
+                        </div>
+                        <p class="text-muted small mb-3">Découverte du numérique & de l'informatique</p>
+                        <p class="text-secondary mb-0">
+                            Après une brève réorientation en 1ère MELEC (électricité) qui ne correspondait pas à mes attentes, j'ai rejoint la filière Systèmes Numériques. Une révélation qui m'a confirmé mon envie de m'orienter vers l'informatique et les technologies.
+                        </p>
+                    </div>
+
+                    <!-- Étape 3 : Les Débuts -->
+                    <div class="card border mb-4 p-4 rounded-3" style="background: var(--bg-surface); border-color: var(--card-border) !important;">
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <span class="badge px-3 py-2 fs-6" style="background-color: var(--tag-bg); color: var(--tag-color); border: 1px solid var(--card-border);">Les Débuts</span>
+                            <h2 class="h5 fw-bold mb-0">Seconde Générale & Passion pour la création</h2>
+                        </div>
+                        <p class="text-secondary mb-0">
+                            Depuis tout jeune, j'ai toujours eu cette envie de concevoir et fabriquer des choses utiles pour autrui. Après une seconde générale où les résultats n'étaient pas au rendez-vous, j'ai choisi de trouver ma propre voie à travers une filière technique qui me passionne réellement.
+                        </p>
+                    </div>
+
+                    <!-- Bouton retour -->
+                    <div class="text-center mt-5">
+                        <a href="index.html" class="btn btn-outline-secondary px-4 py-2">
+                            <i class="bi bi-arrow-left me-1"></i> Retour à l'accueil
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-section border-top py-4 text-center text-muted small">
+        <div class="container">
+            <p class="mb-0">© 2026 Nino Hernandez — Développé avec passion</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & Script JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
