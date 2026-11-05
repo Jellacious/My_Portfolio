@@ -1,34 +1,20 @@
-// --- Gestion du Thème Clair / Sombre ---
-function updateThemeUI(theme) {
+// --- Gestion automatique du Thème selon le périphérique ---
+function applyDeviceTheme() {
+    const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = isDark ? 'dark' : 'light';
     document.documentElement.setAttribute('data-bs-theme', theme);
-    localStorage.setItem('theme', theme);
-
-    const themeIcon = document.getElementById('themeIcon');
-    if (themeIcon) {
-        if (theme === 'dark') {
-            themeIcon.className = 'bi bi-sun-fill text-warning';
-        } else {
-            themeIcon.className = 'bi bi-moon-stars-fill text-secondary';
-        }
-    }
 
     const cafecodeImg = document.getElementById('cafecodeProjectImg');
     if (cafecodeImg) {
-        cafecodeImg.src = theme === 'dark' ? 'imgs/cafecode_dark.png' : 'imgs/cafecode_light.png';
+        cafecodeImg.src = isDark ? 'imgs/cafecode_dark.png' : 'imgs/cafecode_light.png';
     }
 }
 
-// Initialiser au chargement
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    updateThemeUI(savedTheme);
+// Appliquer immédiatement et au chargement du DOM
+applyDeviceTheme();
+document.addEventListener('DOMContentLoaded', applyDeviceTheme);
 
-    const themeToggleBtn = document.getElementById('themeToggleBtn');
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-bs-theme') || 'light';
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            updateThemeUI(newTheme);
-        });
-    }
-});
+// Écouter les changements en temps réel (si l'utilisateur bascule son OS en mode sombre/clair)
+if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyDeviceTheme);
+}

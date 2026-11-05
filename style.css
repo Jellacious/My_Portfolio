@@ -60,24 +60,6 @@ body {
     color: var(--primary-color) !important;
 }
 
-/* --- Bouton Dark Mode --- */
-.btn-theme-toggle {
-    background: transparent;
-    border: 1px solid var(--card-border);
-    color: var(--text-main);
-    border-radius: 8px;
-    padding: 6px 12px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.btn-theme-toggle:hover {
-    background-color: var(--tag-bg);
-}
-
 /* --- Hero Section --- */
 .hero-section {
     background-color: var(--bg-surface);
